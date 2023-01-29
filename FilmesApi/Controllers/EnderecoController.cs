@@ -30,7 +30,7 @@ namespace FilmesAPI.Controllers
         public IActionResult AdicionaEndereco([FromBody] CreateEnderecoDto enderecoDto)
         {
             ReadEnderecoDto readDto = _enderecoService.AdicionaEndereco(enderecoDto);
-            return CreatedAtAction(nameof(RecuperaEnderecosPorId), new { Id = enderecoDto.Id }, enderecoDto);
+            return CreatedAtAction(nameof(RecuperaEnderecosPorId), new { Id = readDto.Id }, readDto);
         }
 
         [HttpGet]
