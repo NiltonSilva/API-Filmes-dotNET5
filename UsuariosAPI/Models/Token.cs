@@ -2,7 +2,7 @@
 {
     public class Token
     {
-        public int Value { get; }
+        public string Value { get; }
 
         public Token(string value)
         {
