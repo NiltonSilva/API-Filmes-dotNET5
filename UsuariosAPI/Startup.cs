@@ -37,11 +37,13 @@ namespace UsuariosAPI
 
             /* O proximo comando vai indicar que vou utilizar o Identity */
             services.AddIdentity<IdentityUser<int>, IdentityRole<int>>()
-                .AddEntityFrameworkStores<UserDbContext>();
+                .AddEntityFrameworkStores<UserDbContext>()
+                .AddDefaultTokenProviders();
             services.AddScoped<LogoutService, LogoutService>();
             services.AddScoped<CadastroService, CadastroService>();
             services.AddScoped<TokenService, TokenService>();
             services.AddScoped<LoginService, LoginService>();
+            services.AddScoped(option => new EmailService(Configuration));
             services.AddControllers();
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
         }
